@@ -1,0 +1,57 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<nav class="navbar-color">
+	<div class="nav-wrapper">
+
+		<a class="brand-logo" href="home">HoneyComb</a>
+
+		<ul id="nav-mobile" class="right">
+
+			<li class="honeycomb-search">
+				<!-- search bar form -->
+				<form action="search" method="get" role="search">
+
+					<div class="input-field nav-border-left nav-border-right">
+
+						<input id="search" type="search" name="searchString"
+							placeholder="Search for something..."> <label
+							class="label-icon" for="search"><i class="material-icons">search</i></label><i
+							class="material-icons">close</i>
+
+						<!-- 
+							<input class="btn" type="submit"
+							name="submit" value="Search">
+							-->
+					</div>
+
+				</form>
+			</li>
+
+			<c:if test="${userLoggedIn != null}">
+				<li><a href="relevant">Relevant</a></li>
+			</c:if>
+
+			<li><a href="trending">Trending</a></li>
+			<!-- 
+			<li><a href="#">Recent</a></li>
+			-->
+
+			<!-- change these when user is logged in -->
+			<c:if test="${userLoggedIn == null}">
+				<li class="nav-border-left nav-margin-left"><a href="register"><span
+						class="glyphicon glyphicon-user"></span> Register</a></li>
+				<li><a href="login"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</c:if>
+			<c:if test="${userLoggedIn != null}">
+				<li><a
+					href="profile?userId=${userLoggedIn.userID}&content=Posts"><span
+						class="glyphicon glyphicon-log-out"></span>${userLoggedIn.firstName}</a></li>
+				<li class="nav-border-left nav-margin-left"><a href="logout"><span
+						class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+			</c:if>
+		</ul>
+
+	</div>
+</nav>

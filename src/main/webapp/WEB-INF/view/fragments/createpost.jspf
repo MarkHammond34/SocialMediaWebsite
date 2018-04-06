@@ -1,0 +1,69 @@
+<div class="container">
+	<c:choose>
+		<c:when test="${userLoggedIn != null}">
+			<ul class="collapsible popout" data-collapsible="accordion">
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">lightbulb_outline</i>Create Post
+					</div>
+					<div class="collapsible-body" style="background-color: white">
+						<div class="row">
+
+							<form class="col s12" method="post" action="createPost"
+								enctype="multipart/form-data">
+
+								<div class="row">
+									<div class="input-field col s6">
+										<i class="material-icons prefix">import_contacts</i> <input
+											name="title" id="title" type="text" class="validate">
+										<label for="title">Title</label>
+									</div>
+									<div class="input-field col s6">
+										<i class="material-icons prefix">link</i> <input name="link"
+											id="link" type="text" class="validate"> <label
+											for="link">Link</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s6">
+										<i class="material-icons prefix">fingerprint</i>
+										<textarea name="tags" id="tags" class="materialize-textarea"></textarea>
+										<label for="tags">Tags (separated by commas)</label>
+									</div>
+									<div class="input-field col s6">
+										<i class="material-icons prefix">free_breakfast</i>
+										<textarea name="description" id="description"
+											class="materialize-textarea"></textarea>
+										<label for="description">Description</label>
+									</div>
+								</div>
+
+
+								<div class="row center-align">
+
+									<input type="file" name="file">
+
+								</div>
+
+								<div class="row">
+									<div class="col s6 m6 center-align">
+										<button class="btn waves-effect waves-light" name="submit"
+											type="submit" value="Post">
+											Post<i class="material-icons right">cloud_upload</i>
+										</button>
+									</div>
+									<div class="col s6 m6 center-align">
+										<button class="btn waves-effect waves-light  grey darken-1"
+											name="submit" type="submit" value="Draft">
+											Save Draft<i class="material-icons right">save</i>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</c:when>
+	</c:choose>
+</div>

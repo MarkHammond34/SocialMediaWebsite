@@ -1,0 +1,35 @@
+<div class="card-head panel-heading">
+	<div class="row">
+		<div class="col s12 m2">
+			
+		</div>
+		<div class="col s12 m8">
+			<div class="card-title post-title">
+				<a class="black-text" href="post?postId=${post.postID}">${post.title}</a>
+			</div>
+
+		</div>
+		<div class="col s12 m2">
+			<form action="tackPost" method="POST" id="tackForm${post.postID}">
+				<input type="hidden" name="postID" value="${post.postID}"> <a
+					onclick="document.getElementById('tackForm${post.postID}').submit()" title="Tack"
+					class="push-pin"><img src="resources/images/pin.png" width="30"></a>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="card-body panel-body">
+	<div style="">
+		<a href="post?postId=${post.postID}"><img
+			style="max-height: 100%; max-width: 100%;"
+			src="resources/images/${post.imagePath}"></a>
+		<!-- resources/images/lacrosse.jpg -->
+	</div>
+</div>
+<div class="card-foot panel-footer">
+	<div class="row">
+		<c:forEach var="tag" items="${post.tags}">
+			<div class="tag-badge">${tag}</div>
+		</c:forEach>
+	</div>
+</div>

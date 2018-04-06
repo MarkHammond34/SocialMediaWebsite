@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="card-blocks">
+			<c:forEach var="post" items="${postList}">
+				<div class="card-item panel">
+					<%@ include file="post.jspf"%>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+</div>
